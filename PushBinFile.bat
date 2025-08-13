@@ -8,6 +8,10 @@ if %errorlevel% neq 0 (
     :: If there are changes, prompt for commit message
     :prompt_message
     set /p commit_message="Enter commit message: "
+    
+    :: Trim spaces from the commit message
+    for /f "tokens=* delims=" %%a in ("%commit_message%") do set commit_message=%%a
+    
     if "%commit_message%"=="" (
         echo Commit message cannot be empty. Please enter a valid message.
         goto prompt_message
