@@ -1,4 +1,4 @@
 {
   "firmware_version": "1.0.2",
-  "url": "https://example.com/firmware_update"
+  "url": "https://raw.githubusercontent.com/isyeddani/FT_Bin/main/firmware.bin"
 }
