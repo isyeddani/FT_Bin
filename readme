@@ -1,0 +1,14 @@
+Step to Upload New Firmware On Github:
+
+
+1) Delete old bin file from folder. 
+
+2) Update the firmware version in json file
+
+3) Compile new firmware
+
+4) Run PushBinFile.bat file and add commit message
+
+5) New file and verison gets uploaded on github public directory. 
+
+6) Device will check for new version every 12 Hour
