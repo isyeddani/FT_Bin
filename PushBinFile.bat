@@ -40,19 +40,20 @@ echo Updated info.json firmware_version to %fw_version%
 :: Check if there are any changes to commit
 git diff --quiet
 if %errorlevel% neq 0 (
-    :: If there are changes, prompt for commit message
     :prompt_message
-    set /p commit_message="Enter commit message: "
-    for /f "tokens=* delims=" %%a in ("%commit_message%") do set "commit_message=%%a"
-    
-    if "%commit_message%"=="" (
+    set "commit_message="
+    set /p "commit_message=Enter commit message: "
+
+    :: Trim leading spaces
+    for /f "tokens=* delims= " %%A in ("!commit_message!") do set "commit_message=%%A"
+
+    if not defined commit_message (
         echo Commit message cannot be empty. Please enter a valid message.
         goto prompt_message
     )
 
-    :: Git commit and push
     git add .
-    git commit -m "%commit_message%"
+    git commit -m "!commit_message!"
     git push
 ) else (
     echo No changes to commit.
