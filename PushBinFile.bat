@@ -59,5 +59,5 @@ if %errorlevel% neq 0 (
     echo No changes to commit.
 )
 
-pause
+pause >nul
 endlocal
